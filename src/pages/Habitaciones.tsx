@@ -13,7 +13,6 @@ interface DataType {
   nombreHabitacion: string;
   descripcion: string;
   capacidad: number;
-  disponible: boolean;
   imagenUrl: string;
 }
 
@@ -33,7 +32,6 @@ const HabitacionesTable: React.FC = () => {
         nombreHabitacion: habitacion.nombreHabitacion,
         descripcion: habitacion.descripcion,
         capacidad: habitacion.capacidad,
-        disponible: habitacion.disponible,
         imagenUrl: habitacion.imagenUrl,
       }));
 
@@ -81,12 +79,6 @@ const HabitacionesTable: React.FC = () => {
       title: 'Capacidad',
       dataIndex: 'capacidad',
       key: 'capacidad',
-    },
-    {
-      title: 'Disponible',
-      dataIndex: 'disponible',
-      key: 'disponible',
-      render: (isDisponible) => <span>{isDisponible ? 'No Disponible' : 'Disponible'}</span>,
     },
     {
       title: 'Imagen',

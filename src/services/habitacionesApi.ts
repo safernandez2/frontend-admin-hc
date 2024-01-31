@@ -7,7 +7,6 @@ export interface Habitacion {
   nombreHabitacion: string;
   descripcion: string;
   capacidad: number;
-  disponible: boolean;
   imagenUrl:string;
 }
 

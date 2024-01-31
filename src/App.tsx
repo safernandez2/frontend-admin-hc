@@ -4,6 +4,7 @@ import HabitacionesTable from './pages/Habitaciones';
 import RootLayout from './layouts/RootLayout';
 import { Home } from './pages/Home';
 import ReservasTable from './pages/Reservas';
+import UsuariosTable from './pages/Usuarios';
 import Login from './components/Login';
 import './App.css'; // Nuevo archivo CSS para estilos generales de la aplicación
 
@@ -14,6 +15,8 @@ const AppRoutes: React.FC = () => (
       <Route index element={<Home />} />
       <Route path="habitaciones" element={<HabitacionesTable />} />
       <Route path="reservas" element={<ReservasTable />} />
+      <Route path="usuarios" element={<UsuariosTable />} />
+
     </Route>
   </Routes>
 );

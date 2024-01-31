@@ -3,6 +3,7 @@ import { Space, Table, Button, Modal } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
 import * as reservasApi from '../services/reservasApi';
+import ModalDeleteReserva from '../components/ModalDeleteReservation';
 
 interface DataType {
   key: string;
@@ -12,7 +13,6 @@ interface DataType {
   correoCliente: string;
   fechaInicio: Date;
   fechaFin: Date;
-  estado: string;
   numeroCliente: string;
 }
 
@@ -20,6 +20,8 @@ const ReservasTable: React.FC = () => {
   
   const [data, setData] = useState<DataType[]>([]);
   const [modalVisible, setModalVisible] = useState(false);
+  const [selectedReservaId, setSelectedReservaId] = useState<number | null>(null);
+
 
   const obtenerDatosReservas = async () => {
     try {
@@ -32,7 +34,6 @@ const ReservasTable: React.FC = () => {
         correoCliente: reserva.correoCliente,
         fechaInicio: reserva.fechaInicio,
         fechaFin: reserva.fechaFin,
-        estado: reserva.estado,
         numeroCliente: reserva.numeroCliente,
       }));
 
@@ -48,6 +49,10 @@ const ReservasTable: React.FC = () => {
 
   const actualizarDatos = async () => {
     await obtenerDatosReservas();
+  };
+  const handleEditClick = (reservaId: number) => {
+    setSelectedReservaId(reservaId);
+    setModalVisible(true);
   };
 
   const handleEditSuccess = () => {
@@ -92,9 +97,14 @@ const ReservasTable: React.FC = () => {
       key: 'fechaFin',
     },
     {
-      title: 'Estado',
-      dataIndex: 'estado',
-      key: 'estado',
+      title: 'Action',
+      key: 'action',
+      render: (_, record) => (
+        <Space size="middle">
+         
+          <ModalDeleteReserva reservaid={record.reservaid} onDeleteSuccess={actualizarDatos} />
+        </Space>
+      ),
     },
   ];
 

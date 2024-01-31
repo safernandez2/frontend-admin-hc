@@ -9,7 +9,6 @@ export interface Reserva {
   correoCliente: string;
   fechaInicio: Date;
   fechaFin: Date;
-  estado: string;
   numeroCliente: string;
 }
 
@@ -25,5 +24,23 @@ export const createReserva = async (data: Reserva | FormData): Promise<Reserva> 
 export const fetchReserva = async (reservaid: number): Promise<Reserva> => {
   const url = `${reservasApiUrl}/${reservaid}`;
   const response: AxiosResponse<Reserva> = await axios.get(url);
+  return response.data;
+};
+
+export const deleteReserva = async (reservaid: number): Promise<void> => {
+  const url = `${reservasApiUrl}/${reservaid}`;
+  await axios.delete(url);
+};
+
+export const updateReserva = async (reservaid: number, reservaData: Reserva | FormData): Promise<Reserva> => {
+  const url = `${reservasApiUrl}/${reservaid}`;
+
+  // Verificar si usuarioData es FormData o un objeto Usuario
+  const response: AxiosResponse<Reserva> = await axios.put(url, reservaData, {
+    headers: {
+      'Content-Type': 'application/json', // Cambiar a 'application/json' si no es FormData
+    },
+  });
+
   return response.data;
 };

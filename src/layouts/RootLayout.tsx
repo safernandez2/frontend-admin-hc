@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
-    UserOutlined,
-    GlobalOutlined,
+    UsergroupAddOutlined,
     HomeOutlined,
     ShopOutlined,
-    AppstoreAddOutlined, BankOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
 import styles from './root-layout.module.css'
@@ -45,6 +43,11 @@ const { Header, Sider, Content } = Layout;
                             key: '3',
                             icon: <ShopOutlined />,
                             label: (<NavLink to="/reservas">Reservas</NavLink>),                     
+                        },
+                        {
+                            key: '4',
+                            icon: <UsergroupAddOutlined />,
+                            label: (<NavLink to="/usuarios">Usuarios</NavLink>),                     
                         },
                     ]}
                 />
