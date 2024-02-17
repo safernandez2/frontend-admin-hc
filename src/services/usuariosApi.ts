@@ -1,6 +1,6 @@
   import axios, { AxiosResponse } from 'axios';
 
-  export const usuariosApiUrl = 'http://localhost:3000/usuarios';
+  export const usuariosApiUrl = 'https://backend-hosteriacap.onrender.com/usuarios';
 
   export interface Usuario {
     usuarioid?: number;

@@ -34,7 +34,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
       <div className="login-content">
         
-        <h2>Login</h2>
+        <h2>Login 123</h2>
         <div className="form-group">
           <label>Nombre de Usuario:</label>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />

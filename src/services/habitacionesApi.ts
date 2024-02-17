@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-export const habitacionesApiUrl = 'http://localhost:3000/habitaciones';
+export const habitacionesApiUrl = 'https://backend-hosteriacap.onrender.com/habitaciones';
 
 export interface Habitacion {
   habitacionid: number;
